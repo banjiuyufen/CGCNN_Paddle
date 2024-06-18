@@ -18,12 +18,6 @@ _collate_fn_t = Callable[[List[T]], Any]
 from .default_collate import default_collate
 default_collate: _collate_fn_t = default_collate
 
-# import torch
-# from pymatgen.core.structure import Structure
-# from torch.utils.data import Dataset, DataLoader
-# from torch.utils.data.dataloader import default_collate
-# from torch.utils.data.sampler import SubsetRandomSampler
-
 
 def get_train_val_test_loader(dataset,collate_fn=default_collate,
                               batch_size=64, train_ratio=None,
