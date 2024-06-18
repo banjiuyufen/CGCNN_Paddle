@@ -1,8 +1,5 @@
 from __future__ import print_function, division
 
-# import torch
-# import torch.nn as nn
-
 import paddle
 import paddle.nn as nn
 
@@ -43,17 +40,17 @@ class ConvLayer(nn.Layer):
         Parameters
         ----------
 
-        atom_in_fea: Variable(torch.Tensor) shape (N, atom_fea_len)
+        atom_in_fea: paddle.Tensor shape (N, atom_fea_len)
           Atom hidden features before convolution
-        nbr_fea: Variable(torch.Tensor) shape (N, M, nbr_fea_len)
+        nbr_fea: paddle.Tensor shape (N, M, nbr_fea_len)
           Bond features of each atom's M neighbors
-        nbr_fea_idx: torch.LongTensor shape (N, M)
+        nbr_fea_idx: paddle.Tensor shape (N, M)
           Indices of M neighbors of each atom
 
         Returns
         -------
 
-        atom_out_fea: nn.Variable shape (N, atom_fea_len)
+        atom_out_fea: paddle.Tensor shape (N, atom_fea_len)
           Atom hidden features after convolution
 
         """
@@ -134,19 +131,19 @@ class CrystalGraphConvNet(nn.Layer):
         Parameters
         ----------
 
-        atom_fea: Variable(torch.Tensor) shape (N, orig_atom_fea_len)
+        atom_fea: paddle.Tensor shape (N, orig_atom_fea_len)
           Atom features from atom type
-        nbr_fea: Variable(torch.Tensor) shape (N, M, nbr_fea_len)
+        nbr_fea: paddle.Tensor shape (N, M, nbr_fea_len)
           Bond features of each atom's M neighbors
-        nbr_fea_idx: torch.LongTensor shape (N, M)
+        nbr_fea_idx: paddle.Tensor shape (N, M)
           Indices of M neighbors of each atom
-        crystal_atom_idx: list of torch.LongTensor of length N0
+        crystal_atom_idx: list of paddle.Tensor of length N0
           Mapping from the crystal idx to atom idx
 
         Returns
         -------
 
-        prediction: nn.Variable shape (N, )
+        prediction: paddle.Tensor shape (N, )
           Atom hidden features after convolution
 
         """
@@ -176,9 +173,9 @@ class CrystalGraphConvNet(nn.Layer):
         Parameters
         ----------
 
-        atom_fea: Variable(torch.Tensor) shape (N, atom_fea_len)
+        atom_fea: paddle.Tensor shape (N, atom_fea_len)
           Atom feature vectors of the batch
-        crystal_atom_idx: list of torch.LongTensor of length N0
+        crystal_atom_idx: list of paddle.Tensor of length N0
           Mapping from the crystal idx to atom idx
         """
         assert sum([len(idx_map) for idx_map in crystal_atom_idx]) ==\
