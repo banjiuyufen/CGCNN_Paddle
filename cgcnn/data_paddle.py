@@ -30,9 +30,9 @@ def get_train_val_test_loader(dataset,collate_fn=default_collate,
 
     Parameters
     ----------
-    dataset: torch.utils.data.Dataset
+    dataset: paddle.io.Dataset
       The full dataset to be divided.
-    collate_fn: torch.utils.data.DataLoader
+    collate_fn: paddle.io.DataLoader
     batch_size: int
     train_ratio: float
     val_ratio: float
@@ -45,11 +45,11 @@ def get_train_val_test_loader(dataset,collate_fn=default_collate,
 
     Returns
     -------
-    train_loader: torch.utils.data.DataLoader
+    train_loader: paddle.io.DataLoader
       DataLoader that random samples the training data.
-    val_loader: torch.utils.data.DataLoader
+    val_loader: paddle.io.DataLoader
       DataLoader that random samples the validation data.
-    (test_loader): torch.utils.data.DataLoader
+    (test_loader): paddle.io.DataLoader
       DataLoader that random samples the test data, returns if
         return_test=True.
     """
@@ -309,9 +309,9 @@ class CIFData(Dataset):
     Returns
     -------
 
-    atom_fea: torch.Tensor shape (n_i, atom_fea_len)
-    nbr_fea: torch.Tensor shape (n_i, M, nbr_fea_len)
-    nbr_fea_idx: torch.LongTensor shape (n_i, M)
+    atom_fea: paddle.Tensor shape (n_i, atom_fea_len)
+    nbr_fea: paddle.Tensor shape (n_i, M, nbr_fea_len)
+    nbr_fea_idx: paddle.Tensor shape (n_i, M)
     target: torch.Tensor shape (1, )
     cif_id: str or int
     """
