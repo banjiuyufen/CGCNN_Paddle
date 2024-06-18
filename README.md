@@ -46,7 +46,7 @@ Please cite the following work if you want to use CGCNN.
 
 This package requires:
 
-- [PyTorch](http://pytorch.org)
+- [Paddle](https://www.paddlepaddle.org.cn/en)
 - [scikit-learn](http://scikit-learn.org/stable/)
 - [pymatgen](http://pymatgen.org)
 
