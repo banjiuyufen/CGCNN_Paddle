@@ -9,16 +9,8 @@ import paddle
 import paddle.nn as nn
 from paddle.io import DataLoader
 
-
-# import torch
-# import torch.nn as nn
 from sklearn import metrics
-# from torch.autograd import Variable
-# from torch.utils.data import DataLoader
 
-# from cgcnn.data import CIFData
-# from cgcnn.data import collate_pool
-# from cgcnn.model import CrystalGraphConvNet
 from cgcnn.data_paddle import CIFData
 from cgcnn.data_paddle import collate_pool
 from cgcnn.model_paddle import CrystalGraphConvNet
