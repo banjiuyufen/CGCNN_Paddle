@@ -54,7 +54,7 @@ If you are new to Python, the easiest way of installing the prerequisites is via
 
 ```bash
 conda upgrade conda
-conda create -n cgcnn python=3 scikit-learn pymatgen -c pytorch -c conda-forge
+conda create -n cgcnn python=3 scikit-learn pymatgen -c conda-forge
 ```
 
 *Note: this code is tested for PyTorch v1.0.0+ and is not compatible with versions below v0.4.0 due to some breaking changes.
@@ -71,7 +71,7 @@ Then, in directory `cgcnn`, you can test if all the prerequisites are installed 
 pip install requirements.txt
 ```
 
-This should display the help messages for `main.py` and `predict.py`. If you find no error messages, it means that the prerequisites are installed properly.
+This should display the help messages for `main_paddle.py` and `predict_paddle.py`. If you find no error messages, it means that the prerequisites are installed properly.
 
 After you finished using CGCNN, exit the environment by:
 
@@ -92,7 +92,7 @@ Before defining a customized dataset, you will need:
 
 You can create a customized dataset by creating a directory `root_dir` with the following files: 
 
-1. `id_prop.csv`: a [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) file with two columns. The first column recodes a unique `ID` for each crystal, and the second column recodes the value of target property. If you want to predict material properties with `predict.py`, you can put any number in the second column. (The second column is still needed.)
+1. `id_prop.csv`: a [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) file with two columns. The first column recodes a unique `ID` for each crystal, and the second column recodes the value of target property. If you want to predict material properties with `predict_paddle.py`, you can put any number in the second column. (The second column is still needed.)
 
 2. `atom_init.json`: a [JSON](https://en.wikipedia.org/wiki/JSON) file that stores the initialization vector for each element. An example of `atom_init.json` is `data/sample-regression/atom_init.json`, which should be good for most applications.
 
