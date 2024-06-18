@@ -15,22 +15,9 @@ import paddle
 import paddle.nn as nn
 import paddle.optimizer as optim
 from paddle.optimizer.lr import MultiStepDecay
-
 paddle.device.cuda.synchronize()
 
-
-
-# import torch
-# import torch.nn as nn
-# import torch.optim as optim
 from sklearn import metrics
-# from torch.autograd import Variable
-# from torch.optim.lr_scheduler import MultiStepLR
-
-# from cgcnn.data import CIFData
-# from cgcnn.data import collate_pool, get_train_val_test_loader
-# from cgcnn.model import CrystalGraphConvNet
-
 from cgcnn.data_paddle import CIFData
 from cgcnn.data_paddle import collate_pool, get_train_val_test_loader
 from cgcnn.model_paddle import CrystalGraphConvNet
@@ -239,12 +226,12 @@ def train(train_loader, model, criterion, optimizer, epoch, normalizer):
         fscores = AverageMeter()
         auc_scores = AverageMeter()
 
-    # 切换到训练模式
+  
     model.train()
 
     end = time.time()
     for i, (input, target, _) in enumerate(train_loader()):
-        # 测量数据加载时间
+       
         data_time.update(time.time() - end)
 
         if args.cuda:
@@ -262,7 +249,7 @@ def train(train_loader, model, criterion, optimizer, epoch, normalizer):
                 input[3]
             )
 
-        # 规范化目标
+       
         if args.task == 'regression':
             target_normed = normalizer.norm(target)
         else:
@@ -272,11 +259,11 @@ def train(train_loader, model, criterion, optimizer, epoch, normalizer):
         else:
             target_var = paddle.to_tensor(target_normed)
 
-        # 计算输出
+        
         output = model(*input_var)
         loss = criterion(output, target_var)
 
-        # 测量准确性并记录损失
+        
         if args.task == 'regression':
             mae_error = mae(normalizer.denorm(output.cpu()), target)
             losses.update(loss.cpu().numpy(), target.shape[0])
@@ -290,12 +277,12 @@ def train(train_loader, model, criterion, optimizer, epoch, normalizer):
             fscores.update(fscore, target.shape[0])
             auc_scores.update(auc_score, target.shape[0])
 
-        # 计算梯度并执行优化步骤
+        
         loss.backward()
         optimizer.step()
         optimizer.clear_grad()
 
-        # 测量经过时间
+        
         batch_time.update(time.time() - end)
         end = time.time()
 
