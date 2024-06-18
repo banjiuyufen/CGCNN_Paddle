@@ -186,5 +186,5 @@ To reproduce our paper, you can download the corresponding datasets following th
 
 ## Authors
 
-This original Pytorch version software was primarily written by [Tian Xie](http://txie.me) who was advised by [Prof. Jeffrey Grossman](https://dmse.mit.edu/faculty/profile/grossman), Paddle version was written by [Yi Chen](https://scholar.google.com/citations?user=XoiT9wMAAAAJ&hl=zh -CN)
+This original Pytorch version software was primarily written by [Tian Xie](http://txie.me) who was advised by [Prof. Jeffrey Grossman](https://dmse.mit.edu/faculty/profile/grossman), Paddle version was written by [Yi Chen](https://scholar.google.com/citations?user=XoiT9wMAAAAJ&hl=zh-CN)
 
