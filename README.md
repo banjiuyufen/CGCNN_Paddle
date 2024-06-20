@@ -124,7 +124,7 @@ Before training a new CGCNN model, you will need to:
 Then, in directory `cgcnn`, you can train a CGCNN model for your customized dataset by:
 
 ```bash
-python main_paddle.py root_dir
+CUDA_VISIBLE_DEVICES = 0 python main_paddle.py root_dir
 ```
 
 You can set the number of training, validation, and test data with labels `--train-size`, `--val-size`, and `--test-size`. Alternatively, you may use the flags `--train-ratio`, `--val-ratio`, `--test-ratio` instead. Note that the ratio flags cannot be used with the size flags simultaneously. For instance, `data/sample-regression` has 10 data points in total. You can train a model by:
