@@ -130,17 +130,17 @@ python main_paddle.py root_dir
 You can set the number of training, validation, and test data with labels `--train-size`, `--val-size`, and `--test-size`. Alternatively, you may use the flags `--train-ratio`, `--val-ratio`, `--test-ratio` instead. Note that the ratio flags cannot be used with the size flags simultaneously. For instance, `data/sample-regression` has 10 data points in total. You can train a model by:
 
 ```bash
-python main_paddle.py --train-size 6 --val-size 2 --test-size 2 data/sample-regression
+CUDA_VISIBLE_DEVICES = 0 python main_paddle.py --train-size 6 --val-size 2 --test-size 2 data/sample-regression
 ```
 or alternatively
 ```bash
-python main_paddle.py --train-ratio 0.6 --val-ratio 0.2 --test-ratio 0.2 data/sample-regression
+CUDA_VISIBLE_DEVICES = 0 python main_paddle.py --train-ratio 0.6 --val-ratio 0.2 --test-ratio 0.2 data/sample-regression
 ```
 
 You can also train a classification model with label `--task classification`. For instance, you can use `data/sample-classification` by:
 
 ```bash
-python main_paddle.py --task classification --train-size 5 --val-size 2 --test-size 3 data/sample-classification
+CUDA_VISIBLE_DEVICES = 0 python main_paddle.py --task classification --train-size 5 --val-size 2 --test-size 3 data/sample-classification
 ```
 
 After training, you will get three files in `cgcnn` directory.
@@ -159,19 +159,19 @@ Before predicting the material properties, you will need to:
 Then, in directory `cgcnn`, you can predict the properties of the crystals in `root_dir`:
 
 ```bash
-python predict_paddle.py pre-trained.pth.tar root_dir
+CUDA_VISIBLE_DEVICES = 0 python predict_paddle.py pre-trained.pth.tar root_dir
 ```
 
 For instace, you can predict the formation energies of the crystals in `data/sample-regression`:
 
 ```bash
-python predict_paddle.py pre-trained/formation-energy-per-atom.pth.tar data/sample-regression
+CUDA_VISIBLE_DEVICES = 0 python predict_paddle.py pre-trained/formation-energy-per-atom.pth.tar data/sample-regression
 ```
 
 And you can also predict if the crystals in `data/sample-classification` are metal (1) or semiconductors (0):
 
 ```bash
-python predict_paddle.py pre-trained/semi-metal-classification.pth.tar data/sample-classification
+CUDA_VISIBLE_DEVICES = 0 python predict_paddle.py pre-trained/semi-metal-classification.pth.tar data/sample-classification
 ```
 
 Note that for classification, the predicted values in `test_results.csv` is a probability between 0 and 1 that the crystal can be classified as 1 (metal in the above example).
